@@ -16,7 +16,7 @@ alias httpx='docker run -it --rm -w /data -v $(pwd):/data projectdiscovery/httpx
 
 sleep 2
 
-echo "subfinder & subfinder  successfully installs "
+echo "subfinder & httpx  successfully installs "
 
 
 #enumeration subdomain
