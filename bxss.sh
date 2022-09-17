@@ -1,25 +1,31 @@
 #!/bin/bash
 #install subfinder
 docker pull projectdiscovery/subfinder
+sleep 2
 
 #alias subfinder
 alias subfinder='docker run -it --rm -w /data -v $(pwd):/data projectdiscovery/subfinder'
+sleep 2
 
 #install httpx
 docker pull projectdiscovery/httpx
+sleep 2
 
 #alias httpx
 alias httpx='docker run -it --rm -w /data -v $(pwd):/data projectdiscovery/httpx'
 
+sleep 2
 
 echo "subfinder & subfinder  successfully installs "
 
 
 #enumeration subdomain
 subfinder -d $1 -silent >> $1subdomain.txt
- 
+ sleep 2
+
 count = cat $1subdomain.txt | wc 
  echo "enumeration subdomain $count successfully  " 
+sleep 2
 
 #subdomain live
 
@@ -29,6 +35,7 @@ countx = cat $1LIVE.txt | wc
 
  echo " subdomainlive  $countx successfully  " 
 
+sleep 2
 
 #blindxss
 
