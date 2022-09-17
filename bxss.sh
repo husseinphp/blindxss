@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #install subfinder
 docker pull projectdiscovery/subfinder
 sleep 2
