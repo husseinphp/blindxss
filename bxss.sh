@@ -28,7 +28,7 @@ wc -l <  $1subdomain.txt
 
 
 echo "enumeration httpx  successfully  " 
-httpx -l $1subdomain.txt  >> $1live.txt
+httpx -l $1subdomain.txt  -o  $1live.txt
 
 wc -l <  $1live.txt
 
